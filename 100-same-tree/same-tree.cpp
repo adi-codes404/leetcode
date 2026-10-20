@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        // Both nodes are empty
+        if (p == nullptr && q == nullptr) {
+            return true;
+        }
+
+        // One node is empty, or values differ
+        if (p == nullptr || q == nullptr) {
+            return false;
+        }
+
+        if (p->val != q->val) {
+            return false;
+        }
+
+        // Compare left and right subtrees
+        return isSameTree(p->left, q->left) &&
+               isSameTree(p->right, q->right);
+    }
+};
